@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZPUR_TAB",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZPUR_TAB",
+  "sapObjectType": "ZPUR_TAB",
+  "rootNode": true
+}

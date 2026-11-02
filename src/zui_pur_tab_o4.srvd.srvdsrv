@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_PUR_TAB'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_PUR_TAB'
+  }
+}
+define service ZUI_PUR_TAB_O4 provider contracts odata_v4_ui {
+  expose ZC_PUR_TAB;
+}

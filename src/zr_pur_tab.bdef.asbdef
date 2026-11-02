@@ -1,0 +1,70 @@
+managed implementation in class ZBP_R_PUR_TAB unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_PUR_TAB alias ZrPurTab
+persistent table ZPUR_TAB
+extensible
+draft table ZPUR_TAB_D
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master( global )
+{
+  field ( readonly )
+   Autoinc,
+   Createdby,
+   Createdat,
+   Changedby,
+   Lastchangedat,
+   Locallastchangedat;
+
+  field ( numbering : managed )
+   Autoinc;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  validation purordernamecheck on save {create; }
+
+  determination total on modify { field qty1,price1; }
+
+  side effects
+{
+  field qty1  affects field total;
+  field price1  affects field total;
+
+}
+
+
+
+
+  mapping for ZPUR_TAB corresponding extensible
+  {
+    Autoinc = AUTOINC;
+    Purnum = PURNUM;
+    Purname = PURNAME;
+    Purcreadate = PURCREADATE;
+    qty = qty;
+    price = PRICE;
+    total = TOTAL;
+    qty1 = qty1;
+    price1 = PRICE1;
+    total1 = TOTAL1;
+    Createdby = CREATEDBY;
+    Createdat = CREATEDAT;
+    Changedby = CHANGEDBY;
+    Lastchangedat = LASTCHANGEDAT;
+    Locallastchangedat = LOCALLASTCHANGEDAT;
+  }
+
+
+}
